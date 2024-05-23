@@ -29,7 +29,7 @@ export default function App() {
           setTasks(parsedTasks);
         }
       } catch (e) {
-        console.log("error in loading tasks");
+        console.log("error in loading tasks bad!!!");
       }
     };
     loadTasks();
@@ -71,6 +71,12 @@ export default function App() {
                     tasksCopy.splice(task_index, 1);
                     setTasks(tasksCopy);
                   }
+                }}
+                deletePressed={(text) => {
+                  const tasksCopy = [...tasks];
+                  task_index = tasksCopy.findIndex((obj) => obj.text === text);
+                  tasksCopy.splice(task_index, 1);
+                  setTasks(tasksCopy);
                 }}
               >
                 {task.text}
